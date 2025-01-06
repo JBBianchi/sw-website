@@ -1,0 +1,37 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { humanCase } from '../utils/formatter';
+
+const postGroups = (await getCollection('blog'))
+  .sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  )
+  .reduce((groups, entry) => {
+    const id = entry.id;
+    const groupId = id.split('/')[0];
+    groups[groupId] = groups[groupId] || [];
+    groups[groupId].push(entry);
+    return groups;
+  }, {} as Record<string, CollectionEntry<'blog'>[]>);
+---
+<div class="w-full">
+  <a href="/blog">Blog</a>
+  <ul class="menu">
+    {
+      Object.entries(postGroups).map(([group, entries]) => 
+        <li>
+          <a>{humanCase(group)}</a>
+          <ul>
+            {
+              entries.map(post => (
+                <li>
+                  <a href={`/blog/${post.id}/`}>{post.data.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </li>
+      )
+    }
+  </ul>
+</div>

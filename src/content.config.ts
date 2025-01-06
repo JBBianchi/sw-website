@@ -7,14 +7,17 @@ const getLoader = (contentType: string) => glob({
   pattern: `**/[^_]*.{${mdExtensions.join(',')}}`
 });
 
+const BlogPostSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  author: z.string(),
+  date: z.coerce.date(),
+});
+export type BlogPost = z.infer<typeof BlogPostSchema>;
+
 const blog = defineCollection({
   loader: getLoader('blog'),
-  schema: z.object({
-		title: z.string(),
-		description: z.string(),
-    author: z.string(),
-    date: z.coerce.date(),
-  })
+  schema: BlogPostSchema
 });
 /*
 const docs = defineCollection({

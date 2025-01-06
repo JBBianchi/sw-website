@@ -5,52 +5,70 @@ import { Code } from 'astro:components';
 
 <Layout>
   <!-- Hero -->
-  <div class="hero min-h-[60vh] bg-base-200">
+  <div 
+    class="hero min-h-[60vh] bg-base-200">
+  <!--
+    style="background-image: url(/img/banners/banner1.jpg);"
+  >
+    <div class="hero-overlay glass"></div>
+  -->  
     <div class="hero-content text-center">
       <div class="max-w-3xl">
         <h1 class="text-5xl font-bold">Serverless Workflow</h1>
-        <p class="py-6">Serverless Workflow presents a vendor-neutral, open-source, and entirely community-driven ecosystem tailored for defining and executing DSL-based workflows in the realm of Serverless technology. The current version is 1.0.0-alpha5, get the JSON Schema here: <a class="link" href="/schemas/1.0.0-alpha5/workflow.yaml" target="_blank" rel="noopener">YAML</a> or <a class="link" href="/schemas/1.0.0-alpha5/workflow.json" target="_blank" rel="noopener">JSON</a></p>
+        <p class="pt-6">Serverless Workflow presents a vendor-neutral, open-source, and entirely community-driven ecosystem tailored for defining and executing DSL-based workflows in the realm of Serverless technology.</p>
+        <p class="py-6">The current version is 1.0.0-alpha5, get the JSON Schema here: <a class="link" href="/schemas/1.0.0-alpha5/workflow.yaml" target="_blank" rel="noopener">YAML</a> or <a class="link" href="/schemas/1.0.0-alpha5/workflow.json" target="_blank" rel="noopener">JSON</a></p>
         <a class="btn btn-primary" href="https://github.com/serverlessworkflow/specification/blob/main/README.md" target="_blank" rel="noopener">Learn More</a>
       </div>
+    </div>
+  </div>
+  <div  class="py-16 px-4 bg-primary text-primary-content">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-2xl text-center font-bold">The Serverless Workflow DSL is a high-level language that reshapes the terrain of workflow creation, boasting a design that is ubiquitous, intuitive, imperative, and fluent.</p>
     </div>
   </div>
 
   <!-- Selling points -->
   <div class="py-16 px-4">
     <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-wand-magic-sparkles text-primary text-2xl"></i> Easy to Use!</h3>
+          <i class="fa-solid fa-wand-magic-sparkles text-primary text-5xl"></i>
+          <h3 class="card-title justify-center">Easy to Use!</h3>
           <p>Serverless Workflow DSL simplifies workflow concepts, allowing users to easily create complex workflows.</p>
         </div>
       </div>
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-bolt text-primary text-2xl"></i> Event driven</h3>
+          <i class="fa-solid fa-bolt text-primary text-5xl"></i> 
+          <h3 class="card-title justify-center">Event driven</h3>
           <p>Integrate events seamlessly into workflows with support for formats like CloudEvents, enabling event-driven architectures</p>
         </div>
       </div>
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-network-wired text-primary text-2xl"></i> Service Oriented</h3>
+          <i class="fa-solid fa-network-wired text-primary text-5xl"></i> 
+          <h3 class="card-title justify-center">Service Oriented</h3>
           <p>The Serverless Workflow DSL allows developers to integrate with service-oriented architectures, defining workflows that interact with services using protocols like HTTP, GRPC, OpenAPI, and AsyncAPI.</p>
         </div>
       </div>
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-cloud text-primary text-2xl"></i> FaaS Centric</h3>
+          <i class="fa-solid fa-cloud text-primary text-5xl"></i> 
+          <h3 class="card-title justify-center">FaaS Centric</h3>
           <p>Invoke functions across platforms seamlessly within workflows, supporting FaaS and microservices architectures.</p>
         </div>
       </div>
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-clock text-primary text-2xl"></i> Timely</h3>
+          <i class="fa-solid fa-clock text-primary text-5xl"></i> 
+          <h3 class="card-title justify-center">Timely</h3>
           <p>Set timeouts for workflows and tasks to manage execution duration.</p>
         </div>
       </div>
-      <div class="card text-center shadow-xl">
+      <div class="card text-center">
         <div class="card-body">
-          <h3 class="card-title justify-center"><i class="fa-solid fa-shield-halved text-primary text-2xl"></i> Fault tolerant</h3>
+          <i class="fa-solid fa-shield-halved text-primary text-5xl"></i> 
+          <h3 class="card-title justify-center">Fault tolerant</h3>
           <p>Define error handling strategies to manage and recover from workflow execution errors, ensuring robustness and reliability.</p>
         </div>
       </div>
@@ -266,7 +284,7 @@ do:
             <div class="my-4 flex justify-center">
               <img src="img/logos/neuroglia.png" class="img-logo-company"/>
             </div>
-            <h3 class="card-title justify-center">Warrify</h3>
+            <h3 class="card-title justify-center">Neuroglia</h3>
             <p>Neuroglia is a consultancy and solution design company for the digital transformation of companies and their services.</p>
             <a class="link link-primary" href="https://neuroglia.io" target="_blank" rel="noopener">Website</a>
           </div>

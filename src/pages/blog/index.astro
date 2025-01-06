@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import SidebarLayout from '../../layouts/SidebarLayout.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
-<Layout>
-  <ul>
+<SidebarLayout>
+  <ul class="w-full">
     {
       posts.map((post) => (
         <li>
@@ -17,4 +17,4 @@ const posts = (await getCollection('blog')).sort(
       ))
     }
   </ul>
-</Layout>
+</SidebarLayout>
