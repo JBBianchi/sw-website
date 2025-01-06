@@ -1,0 +1,17 @@
+---
+import HtmlHead from "../components/HtmlHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+	<head>
+		<HtmlHead />
+	</head>
+	<body class="min-h-screen bg-base-100">
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>

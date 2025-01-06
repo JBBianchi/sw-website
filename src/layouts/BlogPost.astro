@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, date } = Astro.props;
+---
+
+<Layout>
+	<article>
+		<div class="prose">
+			<div class="title">
+				<h1>{title}</h1>
+				<hr />
+			</div>
+			<slot />
+		</div>
+	</article>
+</Layout>

@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Code } from 'astro:components';
+---
+
+<Layout>
+  <!-- Hero -->
+  <div class="hero min-h-[60vh] bg-base-200">
+    <div class="hero-content text-center">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl font-bold">Serverless Workflow</h1>
+        <p class="py-6">Serverless Workflow presents a vendor-neutral, open-source, and entirely community-driven ecosystem tailored for defining and executing DSL-based workflows in the realm of Serverless technology. The current version is 1.0.0-alpha5, get the JSON Schema here: <a class="link" href="/schemas/1.0.0-alpha5/workflow.yaml" target="_blank" rel="noopener">YAML</a> or <a class="link" href="/schemas/1.0.0-alpha5/workflow.json" target="_blank" rel="noopener">JSON</a></p>
+        <a class="btn btn-primary" href="https://github.com/serverlessworkflow/specification/blob/main/README.md" target="_blank" rel="noopener">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selling points -->
+  <div class="py-16 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-wand-magic-sparkles text-primary text-2xl"></i> Easy to Use!</h3>
+          <p>Serverless Workflow DSL simplifies workflow concepts, allowing users to easily create complex workflows.</p>
+        </div>
+      </div>
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-bolt text-primary text-2xl"></i> Event driven</h3>
+          <p>Integrate events seamlessly into workflows with support for formats like CloudEvents, enabling event-driven architectures</p>
+        </div>
+      </div>
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-network-wired text-primary text-2xl"></i> Service Oriented</h3>
+          <p>The Serverless Workflow DSL allows developers to integrate with service-oriented architectures, defining workflows that interact with services using protocols like HTTP, GRPC, OpenAPI, and AsyncAPI.</p>
+        </div>
+      </div>
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-cloud text-primary text-2xl"></i> FaaS Centric</h3>
+          <p>Invoke functions across platforms seamlessly within workflows, supporting FaaS and microservices architectures.</p>
+        </div>
+      </div>
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-clock text-primary text-2xl"></i> Timely</h3>
+          <p>Set timeouts for workflows and tasks to manage execution duration.</p>
+        </div>
+      </div>
+      <div class="card text-center shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title justify-center"><i class="fa-solid fa-shield-halved text-primary text-2xl"></i> Fault tolerant</h3>
+          <p>Define error handling strategies to manage and recover from workflow execution errors, ensuring robustness and reliability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Samples -->
+  <div class="py-16 px-4 bg-base-200">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">User-Friendly DSL: Workflows Made Simple</h2>
+      <div role="tablist" class="tabs tabs-lifted">
+        <input type="radio" name="code_tabs" role="tab" class="tab" aria-label="Minimal" checked />
+        <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+          <h3 class="text-xl font-bold mb-4">Minimal Example</h3>
+          <Code themes={{'light': 'github-light', 'dark': 'github-dark'}} lang="yaml" code={`document:
+  dsl: '1.0.0-alpha5'
+  namespace: examples
+  name: call-http-shorthand-endpoint
+  version: '1.0.0'
+do:
+- getPet:
+    call: http
+    with:
+      method: get
+      endpoint: https://petstore.swagger.io/v2/pet/{petId}`} />
+        </div>
+        <input type="radio" name="code_tabs" role="tab" class="tab" aria-label="Async API" />
+        <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
+          <h3 class="text-xl font-bold mb-4">Async API Example</h3>
+          <Code themes={{'light': 'github-light', 'dark': 'github-dark'}} lang="yaml" code={`document:
+  dsl: '1.0.0-alpha5'
+  namespace: examples
+  name: bearer-auth
+  version: '1.0.0'
+do:
+- findPet:
+    call: asyncapi
+    with:
+      document:
+        uri: https://fake.com/docs/asyncapi.json
+      operationRef: findPetsByStatus
+      server: staging
+      message: getPetByStatusQuery
+      binding: http
+      payload:
+        petId: $\{ .pet.id }
+      authentication:
+        bearer:
+          token: $\{ .token }`} />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reach out -->
+  <div class="py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Reach out to us!</h2>
+      <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title justify-center"><i class="fa-solid fa-users text-primary text-2xl"></i> Join our Meetings!</h3>
+            <p>Add the schedule to your calendar and become a part of our discussions!</p>
+            <a class="link link-primary" href="https://github.com/serverlessworkflow/specification/discussions/799" target="_blank" rel="noopener">How To Join</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title justify-center"><i class="fab fa-github text-primary text-2xl"></i> Contributions welcome!</h3>
+            <p>We do a <a href="https://github.com/serverlessworkflow/specification/pulls" target="_blank" rel="noopener">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New users are always welcome!</p>
+            <a class="link link-primary" href="https://github.com/serverlessworkflow/specification" target="_blank" rel="noopener">To Repository</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <h3 class="card-title justify-center"><i class="fab fa-slack text-primary text-2xl"></i> Join us on Slack!</h3>
+            <p>Chat with our community and follow announcements at <strong>#serverless-workflow</strong></p>
+            <a class="link link-primary" href="https://slack.cncf.io/" target="_blank" rel="noopener">Open Slack</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Projects -->
+  <div class="py-16 px-4 bg-base-200">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Open Source projects supporting our DSL</h2>
+      <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/eventmesh.png" class="img-logo"/>
+            </div>
+            <h3 class="card-title justify-center">Apache EventMesh Workflow</h3>
+            <p>Apache EventMesh Workflow is a cloud vendor-independent, cloud-native-oriented Serverless Workflow Runtime based on Serverless Workflow specification, and provides durability, reliability, scalability, and observability capabilities.</p>
+            <a class="link link-primary" href="https://github.com/apache/eventmesh-workflow" target="_blank" rel="noopener">Get Started</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/kogito.png" class="img-logo"/>
+            </div>
+            <h3 class="card-title justify-center">Apache KIE SonataFlow</h3>
+            <p>SonataFlow is a powerful tool for building cloud-native workflow applications, enabling seamless orchestration and choreography of services and events.</p>
+            <a class="link link-primary" href="https://sonataflow.org" target="_blank" rel="noopener">Get Started</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/synapselogo.png" class="img-logo"/>
+            </div>
+            <h3 class="card-title justify-center">Synapse</h3>
+            <p>Synapse is a vendor-neutral, free, open-source, and community-driven Workflow Management System (WFMS) implementing the Serverless Workflow specification. You can deploy Synapse on Docker, Kubernetes, or natively on Windows, Mac, and Linux.</p>
+            <a class="link link-primary" href="https://github.com/serverlessworkflow/synapse" target="_blank" rel="noopener">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Adopters -->
+  <div class="py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center">Trusted by top brands in workflow technologies</h2>
+      <p class="text-1xl text-center mb-12">Already using Serverless Workflow? Join our list of top brands by letting us know here!</p>
+      <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/eventmesh2.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Apache EventMesh</h3>
+            <p>A new generation serverless event middleware for building distributed event-driven applications.</p>
+            <a class="link link-primary" href="https://github.com/apache/eventmesh" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/caf.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Caf</h3>
+            <p>Serverless Workflow is the core technology behind every KYC/KYB solution allowing them to customize it for their clients seamlessly.</p>
+            <a class="link link-primary" href="https://caf.io/" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/faasnet.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">FaasNet</h3>
+            <p>FaasNet makes it easy to deploy functions and API to Kubernetes without repetitive, boiler-plate coding.</p>
+            <a class="link link-primary" href="https://github.com/simpleidserver/FaasNet" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/huawei.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Huawei</h3>
+            <p>Huawei FunctionGraph hosts event-driven functions in a serverless context while ensuring high availability, high scalability, and zero maintenance.</p>
+            <a class="link link-primary" href="https://www.huaweicloud.com/intl/en-us/product/functiongraph.html" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/neuroglia.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Neuroglia</h3>
+            <p>Neuroglia is a consultancy and solution design company for the digital transformation of companies and their services.</p>
+            <a class="link link-primary" href="https://neuroglia.io/" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/redhat.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Red Hat</h3>
+            <p>Red Hat sponsors Apache KIE SonataFlow, a tool for creating cloud-native workflows. SonataFlow supports service and event orchestration, integrating with your architecture using CloudEvents, REST calls, and other standard components.</p>
+            <a class="link link-primary" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/serverless" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/warrify.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Warrify</h3>
+            <p>Warrify offers a leading data platform for the retail industry. With "warrify Journeys" (powered by Serverless Workflows) retailers are discovering new ways how to engage their customers in real time.</p>
+            <a class="link link-primary" href="https://www.warrify.com" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sponsors -->
+  <div class="py-16 px-4 bg-base-200">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold text-center">Support our Project</h2>
+      <p class="text-1xl text-center mb-12">Our sponsors, along with our community, help our project grow and stay vendor-neutral through their donations.</p>
+      <div class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="card text-center">
+          <div class="card-body">
+            <div class="my-4 flex justify-center">
+              <img src="img/logos/neuroglia.png" class="img-logo-company"/>
+            </div>
+            <h3 class="card-title justify-center">Warrify</h3>
+            <p>Neuroglia is a consultancy and solution design company for the digital transformation of companies and their services.</p>
+            <a class="link link-primary" href="https://neuroglia.io" target="_blank" rel="noopener">Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
