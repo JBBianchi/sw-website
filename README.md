@@ -4,7 +4,7 @@ This repository hosts the website for the [Serveless Workflow Specification](htt
 
 ## 🧑 Contributing to the website
 
-The website uses [Astro](https://astro.build/) and [Docsy](https://www.docsy.dev/). You can find more information about how to get started with this stack [here](https://docs.astro.build/en/getting-started/).
+The website uses [Astro](https://astro.build/). You can find more information about how to get started with this stack [here](https://docs.astro.build/en/getting-started/).
 
 For the styling, it relies on [TailWind CSS](https://tailwindcss.com/) and [Daisy UI](https://daisyui.com/).
 
