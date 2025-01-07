@@ -32,3 +32,10 @@ export const collections = {
   blog,
   //docs,
 };
+
+export type CollectionContent = {
+  id: string;
+  data: {
+    title: string;
+  }
+}

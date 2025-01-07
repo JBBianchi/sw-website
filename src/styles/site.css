@@ -6,13 +6,3 @@ html[data-theme="dark"] .astro-code span {
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;*/
 } 
-
-.img-logo {
-  height: 50px;
-  max-width: none;
-}
-
-.img-logo-company {
-  height: 75px;
-  max-width: none;
-}

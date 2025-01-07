@@ -1,24 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import BlogPostsList from '../../components/BlogPostsList.astro';
 import SidebarLayout from '../../layouts/SidebarLayout.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
+import { getSortedBlogPosts } from '../../utils/collections';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-);
+const posts = await getSortedBlogPosts();
 ---
 
-<SidebarLayout>
-  <ul class="w-full">
-    {
-      posts.map((post) => (
-        <li>
-          <a href={`/blog/${post.id}/`}>{post.data.title}</a>
-          <p class="date">
-            <FormattedDate date={post.data.date} />
-          </p>
-        </li>
-      ))
-    }
-  </ul>
+<SidebarLayout title="Blog" entries={posts}>
+  <div class="prose">
+    <h1>Blog Posts</h1>
+    <BlogPostsList {posts}>
+  </div>
 </SidebarLayout>

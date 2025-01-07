@@ -1,7 +1,7 @@
 ---
 title: Serverless Workflow Java SDK 7.0.0-alpha5
 author: Francisco Javier Tirado Sarti
-date: 2024-11-7
+date: 2024-11-07
 description: >
    Heads up, community! We have released a new Java SDK version compatible with Specification 1.0.0.
 ---
@@ -12,23 +12,25 @@ Hello, Serverless Workflow community!
 
 We're excited to announce the release of the latest Java SDK, version 7.0.0-alpha5, now compatible with the upcoming Serverless Workflow Specification 1.0.0. You can dive right in by using [one of the examples](https://github.com/serverlessworkflow/specification/tree/main/examples) available in the specification repository. Here's a quick example to get you started:
 
-{{< card code=true header="**Java SDK Example**" lang="Java" >}}
+**Java SDK Example**
+```java
 // Make sure simple.yaml is in your src/main/resources folder
 try (InputStream in = new FileInputStream("simple.yaml")) {
    Workflow workflow = WorkflowReader.readWorkflow (in, WorkflowFormat.YAML);
     // Once you have the Workflow instance, you can use its API to inspect it
 }
-{{< /card >}}
+```
 
 To install the SDK, simply add it as a dependency to your Maven project:
 
-{{< card code=true header="**Maven Dependency**" lang="Java" >}}
+**Maven Dependency**"
+```xml
 <dependency>
     <groupId>io.serverlessworkflow</groupId>
     <artifactId>serverlessworkflow-api</artifactId>
     <version>7.0.0-alpha5</version>
 </dependency>
-{{< /card >}}
+```
 
 With this release, 
 

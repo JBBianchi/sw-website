@@ -1,26 +1,29 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import type { CollectionContent } from '../content.config';
 import { humanCase } from '../utils/formatter';
 
-const postGroups = (await getCollection('blog'))
-  .sort(
-    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-  )
+interface Props {
+	entries: CollectionContent[]
+}
+const { entries } = Astro.props;
+
+const groupedEntries = entries
   .reduce((groups, entry) => {
     const id = entry.id;
     const groupId = id.split('/')[0];
     groups[groupId] = groups[groupId] || [];
     groups[groupId].push(entry);
     return groups;
-  }, {} as Record<string, CollectionEntry<'blog'>[]>);
+  }, {} as Record<string, CollectionContent[]>);
+
 ---
-<div class="w-full">
+<div class="bg-base-100 text-base-content min-h-full w-80 p-4 border-r">
   <a href="/blog">Blog</a>
   <ul class="menu">
     {
-      Object.entries(postGroups).map(([group, entries]) => 
+      Object.entries(groupedEntries).map(([group, entries]) => 
         <li>
-          <a>{humanCase(group)}</a>
+          <a href={`/blog/${group}/`}>{humanCase(group)}</a>
           <ul>
             {
               entries.map(post => (
